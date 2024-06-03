@@ -27,18 +27,3 @@ body {
     border-radius: 50%;
     z-index: 2;
 }
-
-.controls {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 3;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.controls label, .controls input {
-    display: block;
-    margin-bottom: 10px;
-}

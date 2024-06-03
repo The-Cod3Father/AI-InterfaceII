@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             curviness: 1.25,
             autoRotate: true
         },
-        duration: 5,
+        duration: 5,  // Duration of the animation for dot1 in seconds
         repeat: -1,
         ease: "linear"
     });
@@ -30,24 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
             curviness: 1.25,
             autoRotate: true
         },
-        duration: 7,
+        duration: 7,  // Duration of the animation for dot2 in seconds
         repeat: -1,
         ease: "linear"
-    });
-
-    // Function to update animation speed
-    const updateSpeed = (animation, duration) => {
-        animation.duration(duration);
-    };
-
-    // Add event listeners to the input elements
-    document.getElementById("speed1").addEventListener("input", (event) => {
-        const newDuration = 10 - event.target.value;
-        updateSpeed(dot1Anim, newDuration);
-    });
-
-    document.getElementById("speed2").addEventListener("input", (event) => {
-        const newDuration = 10 - event.target.value;
-        updateSpeed(dot2Anim, newDuration);
     });
 });
