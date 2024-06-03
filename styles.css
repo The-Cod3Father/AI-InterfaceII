@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+.animation-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.controls label, .controls input {
+    display: block;
+    margin-bottom: 10px;
+}

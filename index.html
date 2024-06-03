@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dot Animation with GSAP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="animation-container">
+        <img src="path-to-your-image.webp" alt="Brain Image" class="background-image">
+        <div class="dot" id="dot1"></div>
+        <div class="dot" id="dot2"></div>
+        <!-- Add more dots as needed -->
+    </div>
+
+    <div class="controls">
+        <label for="speed1">Dot 1 Speed:</label>
+        <input type="range" id="speed1" min="1" max="10" value="5">
+        <label for="speed2">Dot 2 Speed:</label>
+        <input type="range" id="speed2" min="1" max="10" value="7">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
