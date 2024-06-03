@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     // Create the animations with GSAP
-    const dot1Anim = gsap.to("#dot1", {
+    gsap.to("#dot1", {
         motionPath: {
             path: dot1Path,
             curviness: 1.25,
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ease: "linear"
     });
 
-    const dot2Anim = gsap.to("#dot2", {
+    gsap.to("#dot2", {
         motionPath: {
             path: dot2Path,
             curviness: 1.25,
@@ -34,4 +34,48 @@ document.addEventListener("DOMContentLoaded", () => {
         repeat: -1,
         ease: "linear"
     });
+
+    // Add more random moving dots
+    const createRandomDot = () => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        document.querySelector('.animation-container').appendChild(dot);
+
+        gsap.to(dot, {
+            x: () => `${Math.random() * 100}vw`,
+            y: () => `${Math.random() * 100}vh`,
+            duration: 3 + Math.random() * 7,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
+    };
+
+    for (let i = 0; i < 10; i++) {
+        createRandomDot();
+    }
+
+    // Pulse center animation
+    const pulseCenter = () => {
+        gsap.fromTo("#pulse-center", { scale: 1 }, { scale: 1.5, duration: 0.3, yoyo: true, repeat: 1, ease: "power1.inOut" });
+    };
+
+    // Use Web Speech API for speech recognition
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.interimResults = true;
+    recognition.continuous = true;
+
+    recognition.addEventListener('result', (event) => {
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+            if (event.results[i].isFinal) {
+                const transcript = event.results[i][0].transcript;
+                const syllables = transcript.split(/\s+/).length;
+                for (let j = 0; j < syllables; j++) {
+                    setTimeout(pulseCenter, j * 300); // Adjust the interval timing as needed
+                }
+            }
+        }
+    });
+
+    recognition.start();
 });
